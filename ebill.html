@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   body{
+       background-color: rgb(142, 142, 197);
+   }
+        .box{
+            position: relative;
+            text-align: center;
+            
+            
+    
+
+        }
+        .boxa{
+            width: 430px;
+            height: 430px;
+            position: absolute;
+            top: 80px;
+            left: 35%;
+            background-color :rgb(65, 179, 116);
+            border-radius: 20px;
+            padding-top: 70px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+            
+            
+           
+        }
+        .pad{
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+<section class="box">
+        <h1>BILL CALCULATOR</h1>
+        
+        <div class="boxa">
+    <form method="post">
+
+       <p>Please Enter Meter Number: <input type="text" name="number" id="number" />
+        <input type="button" name="submit" id="submit" onclick="getaction()" value="go" />
+        </p>
+        <p id="demo"> </p>
+        <div class="pad" id="options" style="display: none; ">
+            <input type="radio" name="radio" onclick="myfunction(this.value)" value="1" />Rural
+            <input type="radio" name="radio" onclick="myfunction(this.value)" value="2" />Residential
+            <input type="radio" name="radio" onclick="myfunction(this.value)" value="3" />Commercial
+        </div>
+        
+        <div id="display1" style="display: none;">
+            <label> Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount1" id="amount1" value="" />
+            <input type="submit" name="submit1" value="submit" onclick="getamount1()" />
+        </div>
+        <div id="display2" style="display: none;">
+            <label> Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount2" id="amount2" value="" />
+            <input type="submit" name="submit2" value="submit" onclick="getamount2()" />
+        </div>
+        <div id="display3" style="display: none;">
+            <label> Please Enter Number of Units Consumed</label>
+            <input type="text" name="amount3" id="amount3" value="" />
+            <input type="submit" name="submit3" value="submit" onclick="getamount3()" />
+        </div>
+
+    </form>
+    </div>
+    </section>
+</body>
+<script type="text/javascript">
+function getaction()
+{
+    var m=document.getElementById ("number").value;
+    var a=1234;
+    if (m==a)
+    {
+        document.getElementById ("demo").innerHTML ="Please Choose Category";
+        document.getElementById ("options").style.display = "block";//If meeter number is correct option appear
+
+    }
+    else
+    {
+        document.getElementById ("demo").innerHTML = "Invalid pin";
+    }
+}
+function myfunction(val)
+{
+if(val==1)
+{
+    document.getElementById ("display1").style.display ="block";
+    document.getElementById ("display2").style.display ="none";
+    document.getElementById ("display3").style.display ="none";
+}
+if(val==2)
+{
+    document.getElementById ("display1").style.display ="none";
+    document.getElementById ("display2").style.display ="block";
+    document.getElementById ("display3").style.display ="none";
+}
+if(val==3)
+{
+    document.getElementById ("display1").style.display ="none";
+    document.getElementById ("display2").style.display ="none";
+    document.getElementById ("display3").style.display ="block";
+}
+}
+function getamount1()
+{
+    var u = document.getElementById ("amount1").value;
+    var s = 15;
+    var bill = 0.0;
+    if(u>0 && u<75)
+    {
+        bill = (u*0.30)+s;
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=75 && u<250)
+    {
+        bill = (u*0.45)+s;
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=250 && u<400)
+    {
+        bill = (u*0.65)+s;
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=400 && u<1000)
+    {
+        bill = (u*1.25)+s;
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=1000 && u<5000)
+    {
+        bill = (u*0.45)+s;
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+
+    else{
+        document.getElementById ("display1").innerHTML = "Bill amount: "+bill;
+    }
+
+}
+function getamount2()
+{
+    var u = document.getElementById ("amount2").value;
+    var s = 50;
+    var bill = 0.0;
+    if (u>0 && u<75)
+    {
+        bill = (u*1.25)+s;
+        document.getElementById("display2").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if(u>=70 && u<250)
+    {
+        bill = (u*1.75)+s;
+        document.getElementById("display2").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if(u>=250 && u<400)
+    {
+        bill = (u*2.5)+s
+        document.getElementById("display2").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if(u>=400 && u<1000)
+    {
+        bill = (u*3.5)+s
+        document.getElementById("display2").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if(u>=1000 && u<5000)
+    {
+        bill = (u*5)+s
+        document.getElementById("display2").innerHTML = "Bill amount: "+bill;
+    }
+    else{
+        document.getElementById("display2").innerHTML = "Invalid units";
+    }
+
+}
+function getamount3()
+{
+    var u = document.getElementById ("amount3").value;
+    var s = 65;
+    var bill = 0.0;
+    if (u>0 && u<75)
+    {
+        bill = (u*3)+s;
+        document.getElementById ("display3").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=75 && u<250)
+    {
+        bill = (u*4.5)+s;
+        document.getElementById ("display3").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=250 && u<400)
+    {
+        bill = (u*5.5)+s;
+        document.getElementById ("display3").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=400 && u<1000)
+    {
+        bill = (u*5.5)+s;
+        document.getElementById ("display3").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    if (u>=1000 && u<5000)
+    {
+        bill = (u*7)+s;
+        document.getElementById ("display3").innerHTML = "Bill amount: "+bill;
+    }
+    else
+    {
+        document.getElementById ("display3").innerHTML = "Invalid units";
+    }
+}
+
+
+
+</script>
+</html>
